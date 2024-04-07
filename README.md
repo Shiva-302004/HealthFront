@@ -11,6 +11,7 @@ https://drive.google.com/drive/folders/1-7w84ld9s5TEeubtppf83sz6Y0j7UuvT
 https://github.com/Shiva-302004/hackthon
 
 npm i for init 
+
 npm run dev  -->start the server
 
 #Functionality of our Project
