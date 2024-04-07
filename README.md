@@ -7,12 +7,18 @@
 
 https://drive.google.com/drive/folders/1-7w84ld9s5TEeubtppf83sz6Y0j7UuvT
 
-##project link
+##project link backend
 https://github.com/Shiva-302004/hackthon
 
-npm i for init 
+npm i    ->for init 
 
 npm run dev  -->start the server
+
+##project link Frontend
+
+https://healthdebug-04.netlify.app
+npm i -> for init
+npm run dev  -> for run
 
 #Functionality of our Project
 
