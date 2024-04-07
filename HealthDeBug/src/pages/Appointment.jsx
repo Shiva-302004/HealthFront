@@ -15,7 +15,8 @@ const Appoinment = () => {
 
             {/* section 1 */}
             {/* add background picture */}
-            <div className={`flex flex-col w-full border rounded-b-lg mb-12 bg-[url('/appointmentDoc.jpg')] bg-center bg-brightness-50 bg-cover`}> 
+            <div className={`flex flex-col w-full border rounded-b-lg bg-brightness-50`}> 
+              <img className='-z-40 brightness-50 absolute h-40 w-full object-cover' src={pic} alt="loading..." />
               <div className='flex flex-col justify-center w-full h-40'>
                 <div className='pl-4 text-3xl font-bold text-white'>Book Your Appointment</div>
               </div>
@@ -37,10 +38,10 @@ const Appoinment = () => {
                   <label className='mb-2 font-semibold'>Mobile</label>
                   <input type='number' placeholder='9910167891' className='p-2 border border-black rounded-md'/>
                 </div>
-                <div className='flex flex-col pr-10 mt-4'>
+                {/* <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Patient Email</label>
                   <input type='text' placeholder='enter user id' className='p-2 border border-black rounded-md'/>
-                </div>
+                </div> */}
                 <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Age</label>
                   <input type='number' placeholder='45' className='p-2 border border-black rounded-md'/>

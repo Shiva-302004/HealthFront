@@ -3,20 +3,21 @@ import { RxCross2 } from "react-icons/rx";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from 'react-router-dom'; 
 import pic from "../assets/logoimg.png"
-const Navbar = () => {
+const Navbar = ({login , setLogin}) => {
     const [click, setClick] = useState(false);
     const [savedToken, setSavedToken] = useState("");
 
-    // useEffect(() => {
-    //     const token = localStorage.getItem("token");
-    //     setSavedToken(token);
-    // }, []);
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setSavedToken(token);
+    }, [localStorage.getItem("token")]);
 
-    // const handleLogout = () => {
-    //     localStorage.removeItem("token");
-    //     setSavedToken("");
-    //     // Handle any other logout actions here
-    // };
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setLogin(false);
+        setSavedToken("");
+        // Handle any other logout actions here
+    };
 
     return (
         <div>
@@ -56,12 +57,12 @@ const Navbar = () => {
                     </div>
                     <div className='flex text-white '>
                         {savedToken ? (
-                            <Link className='text-sm md:text-md px-4 py-2 bg-white hover:bg-slate-200 text-blue-400 rounded-full font-bold' to="/" onClick={handleLogout}>Logout</Link>
+                            <Link className={`${(login)?"flex":"hidden"}text-sm md:text-md px-4 py-2 bg-white hover:bg-slate-200 text-blue-400 rounded-full font-bold`} to="/" onClick={handleLogout}>Logout</Link>
                         ) : (
-                            <>
+                            <div >
                                 <Link className='text-sm md:text-md px-4 py-2 bg-white hover:bg-slate-200 active:text-black text-blue-400 rounded-full font-bold' to="/login">Login</Link>
                                 <Link className='text-sm md:text-md px-4 py-2 bg-white hover:bg-slate-200 active:text-black text-blue-400 rounded-full font-bold ml-3' to="/register">Signup</Link>
-                            </>
+                            </div>
                         )}
                     </div>
                 </div>

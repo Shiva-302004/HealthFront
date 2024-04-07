@@ -37,8 +37,9 @@ const RegistrationForm = () => {
       const data = response.data;
 
       if (data.success) {
-        toast.success(data.message);
         router('/login');
+        toast.success(data.message);
+        localStorage.setItem("token",data.token)
       } else {
         toast.error(data.message);
       }

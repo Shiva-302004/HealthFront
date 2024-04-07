@@ -1,8 +1,9 @@
 // PaymentPage.js
 import  { useState } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const navigate = useNavigate();
     const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const totalPrice = searchParams.get("total");
@@ -87,7 +88,12 @@ const Payment = () => {
               <label htmlFor="cashOnDelivery" className="ml-2 text-gray-700">Cash on Delivery</label>
             </div>
           </div>
-          <button type="submit" className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Pay Now</button>
+          <button onClick={()=>{
+            setTimeout(()=>{
+              navigate("/")
+            },3000);
+            navigate('/paymentsuccessful')
+          }} type="submit" className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Pay Now</button>
         </form>
       </div>
     </div>

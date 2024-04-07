@@ -8,7 +8,7 @@ const Card = ({ name ,speciality,click}) => {
                     <img src={pic}  className="rounded-full w-[150px] h-[150px]" alt=""/>
                     <span className="text-2xl font-semibold text-slate-500">{name}</span>
                     <span className="text-lg font-semibold text-slate-400">{speciality}</span>
-                    <Link to={`/doctorsinfo/${click}`} className="bg-slate-600 border-2 border-blue-100 w-[90%] md:w-[80%] rounded-full text-center h-10 mt-2 pt-1 text-white font-bold text-sm md:text-lg ">
+                    <Link to={`/doctorprofile/${click}`} className="bg-slate-600 border-2 border-blue-100 w-[90%] md:w-[80%] rounded-full text-center h-10 mt-2 pt-1 text-white font-bold text-sm md:text-lg ">
                         Visit Now
                     </Link>
                 </div>

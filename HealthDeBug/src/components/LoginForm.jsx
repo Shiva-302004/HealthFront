@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const LoginForm = () => {
+export const LoginForm = ({setLogin}) => {
   const router = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -32,8 +32,10 @@ export const LoginForm = () => {
       const data = response.data;
 
       if (data.sucess) {
-        toast.success(data.message);
+        localStorage.setItem("token",data.token)
+        setLogin(true);
         router('/');
+        toast.success(data.message);
       } else {
         toast.error(data.message);
       }
