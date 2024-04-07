@@ -33,11 +33,19 @@ export const LoginForm = ({setLogin}) => {
 
       if (data.sucess) {
         localStorage.setItem("token",data.token)
+        localStorage.setItem("userName",data.data.username)
         setLogin(true);
-        router('/');
-        toast.success(data.message);
+        if(data.data.admin === 1){
+          router('/admin')
+        }
+        else{
+          router('/');
+        }
+        setTimeout(()=>{
+          toast.success(data.msg);
+        },1000)
       } else {
-        toast.error(data.message);
+        toast.error(data.msg);
       }
     } catch (error) {
       console.error('Error submitting form:', error);

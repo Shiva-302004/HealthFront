@@ -11,6 +11,9 @@ import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import Carts from "./components/Carts";
 import DoctorsProfile from "./pages/DoctorsProfile";
 import { useState } from "react";
+import Medicines from "./pages/Medicines";
+import UserProfile from "./pages/UserProfile";
+import Admin from "./pages/Admin";
 
 const App = () => {
   const [login , setLogin] = useState(false);
@@ -30,6 +33,9 @@ const App = () => {
         <Route path='/payment' element={<Payment/>}/>
         <Route path='/paymentsuccessful' element={<PaymentSuccessPage/>}/>
         <Route path='/cart' element={<Carts/>}/>
+        <Route path='/medicines' element={<Medicines/>}/>
+        <Route path='/userprofile' element={<UserProfile/>}/>
+        <Route path='/admin' element={<Admin/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
     {/* <Footer/> */}

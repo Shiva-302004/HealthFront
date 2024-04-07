@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import pic from '../assets/appointmentDoc.jpg'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from 'axios';
 const Appoinment = () => {
   const router = useNavigate();
-  const handleCheckout = () => {
+  const [patientName, setPatientName] = useState("");
+  const [mobile , setMobile] = useState("");
+  const [age, setAge]= useState("");
+  const [date , setDate] = useState("");
+  const [reason , setReason] = useState("");
+  const params = useParams();
+  console.log(params.id)
+  const handleCheckout =async () => {
     // Navigate to the checkout page with total price as parameter
+    try{
+      const data = await axios.post(`https://hackthon-1.onrender.com/api/v1/app/postappoinment/${params.id}`,{
+        name: patientName,
+        // mobile,
+        age,
+        date,
+        reason
+      },{
+        headers:{
+          token:localStorage.getItem("token")
+        }
+      })
+    }
+    
+    catch(e){
+
+    }
     router(`/payment?total=${350}`);
   };
   return (
@@ -32,11 +57,15 @@ const Appoinment = () => {
               <div className='grid grid-cols-3 max-sm:grid-cols-1 '>
                 <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Patient Name</label>
-                  <input type='text' placeholder='Jhon Doe' className='p-2 border border-black rounded-md'/>
+                  <input onChange={(e)=>{
+                    setPatientName(e.target.value);
+                  }} type='text' placeholder='Jhon Doe' className='p-2 border border-black rounded-md'/>
                 </div>
                 <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Mobile</label>
-                  <input type='number' placeholder='9910167891' className='p-2 border border-black rounded-md'/>
+                  <input onChange={(e)=>{
+                    setMobile(e.target.value);
+                  }} type='number' placeholder='9910167891' className='p-2 border border-black rounded-md'/>
                 </div>
                 {/* <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Patient Email</label>
@@ -44,7 +73,9 @@ const Appoinment = () => {
                 </div> */}
                 <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Age</label>
-                  <input type='number' placeholder='45' className='p-2 border border-black rounded-md'/>
+                  <input onChange={(e)=>{
+                    setAge(e.target.value);
+                  }} type='number' placeholder='45' className='p-2 border border-black rounded-md'/>
                 </div>
               </div>
               <div className='flex flex-col mt-4'>
@@ -76,11 +107,16 @@ const Appoinment = () => {
               <div className='flex flex-wrap'>
                <div className='flex flex-col pr-10 mt-4'>
                   <label className='mb-2 font-semibold'>Date</label>
-                  <input type='date' placeholder='Jhon Doe' className='p-2 border border-black rounded-md'/>
+                  <input onChange={(e)=>{
+                    setDate(e.target.value);
+                    console.log(date)
+                  }} type='date' placeholder='Jhon Doe' className='p-2 border border-black rounded-md'/>
                 </div>
                 <div className='flex flex-col pr-10 mt-4'>
                     <label className='mb-2 font-semibold max-sm:text-sm'>Please describe the resion for the visit</label>
-                    <textarea type='text' placeholder='feeling pale.....' className='p-2 border border-black rounded-md h-36 max-sm:w-80 w-96'></textarea>
+                    <textarea onChange={(e)=>{
+                    setReason(e.target.value);
+                  }} type='text' placeholder='feeling pale.....' className='p-2 border border-black rounded-md h-36 max-sm:w-80 w-96'></textarea>
                 </div>
               </div>
             </div>

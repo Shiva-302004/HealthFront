@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import pic from "../assets/doctor.jpeg"
 import { MdOutlinePermPhoneMsg } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-
+const defaultState={name:"NA", room:"NA"}
 const DoctorsProfile = () => {
   const [filterRoom , setFilterRoom] = useState("");
   const [doctor , setDoctor] = useState({});
+  const [data , setData] = useState(defaultState);
   const params = useParams();
   const Navigate = useNavigate();
   useEffect(()=>{
@@ -52,9 +54,11 @@ return (
             <div className=" font-semibold col-span-2 max-md:col-span-1">EXPERIENCE</div>
             <div className="text-slate-500 font-semibold col-span-3 max-md:col-span-1">{doctor.experiance} years+</div>
           </div>
-          <div className="grid grid-cols-5 max-md:grid-cols-2 w-full">
-            <div className=" font-semibold col-span-2 max-md:col-span-1">LANGUAGES</div>
-            <div className="text-slate-500 font-semibold col-span-3 max-md:col-span-1">English, Hindi</div>
+          <div className="flex flex-col w-full">
+            <div className="font-semibold mb-2">Notice</div>
+            <div  border className="border rounded-lg p-2 overflow-hidden flex">
+              {(doctor.status)?doctor.status:"Notification Soon..."}
+            </div>
           </div>
           <div className="grid grid-cols-5 max-md:grid-cols-2 w-full">
             <div className=" font-semibold col-span-2 max-md:col-span-1"></div>
@@ -120,14 +124,25 @@ return (
             <input onChange={(e)=>{
               setFilterRoom(e.target.value);
             }} className='border rounded-full max-sm:text-[9px] p-2 max-sm:p-1' placeholder='Search...'/>
+          <button className="ml-2" onClick={()=>{
+            for(let i = 0 ; i < doctor.patientdetails.length ; i++){
+              if(doctor.patientdetails[i].patientname == filterRoom){
+                setData({room: i+1 , name:doctor.patientdetails[i].patientname})
+                break;
+              }
+              else{
+                setData(defaultState);
+              }
+            }
+          }}><FaSearch /></button>
           </div>
           <div className=' p-4'>
-             {/* need map for patient room */}
-             <div className='flex border space-x-4 max-sm:text-[9px] p-2 rounded-full justify-center'>
-              <div>{filterRoom}</div>
-              <div className='font-semibold'>devraj</div>
-              <div className='font-semibold'>Room 203</div>
-             </div>
+              {(data.name == "NA")? <div></div>: 
+              <div className='flex border space-x-4 max-sm:text-[9px] p-2 rounded-full justify-center'>
+                  <div className='font-semibold'>{data.name}</div>
+                  <div className='font-semibold'>Room {data.room}</div>
+                </div>
+              }
           </div>
         </div>
       </div>
