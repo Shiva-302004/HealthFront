@@ -1,20 +1,33 @@
-# HealthFront
-Hack-O-Fest
 
-//Functionality of our Project
-1.Signup:
+# Health debug
+
+##Hack-O-Fest
+
+// google drive for ppt and video pitch
+
+https://drive.google.com/drive/folders/1-7w84ld9s5TEeubtppf83sz6Y0j7UuvT
+
+##project link
+https://github.com/Shiva-302004/hackthon
+
+npm i for init 
+npm run dev  -->start the server
+
+#Functionality of our Project
+
+##Signup:
 
 Navigate to the signup page.
 Enter your name, email,phone,address and password.(email should be unique)
 Click the "Signup" button.
 you will redirect to login page
 
-2. Login :
+## Login :
 Enter the Correct email or password you were used at register
 click "Login" button
 You will be logged in redirect to Home page
 
-3. book An Appointment
+## book An Appointment
 
    you have to go to doctors on navbar.
    choose the preferred doctor as there is a SearchBar where you can search by doctor name and Speciality
@@ -58,3 +71,5 @@ cors : specify which origins are allowed to access the resources(backend localho
 express: framework of backend
 mongoose: library of MongoDB,straightforward way to interact with databases
 validators:ensuring integrity, security,and usability of web application
+
+
