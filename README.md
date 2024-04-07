@@ -40,3 +40,21 @@ You will be logged in redirect to Home page
       click on medicines on Navbar 
       There is search bar where you can search the medicine and then buy it through online/cash on delivery payment
             (Note: Search-Bar is api integrated by payment page is static now , we can integrate it in future
+
+
+-------------------------------------------------------------
+
+List of ProJect Dependencies
+
+Frontend
+1. axios : JsLibrary used for making HTTPs request from browser,it uses promises
+2. react-dom : provide methods for rendering components,updating and handling them
+3. react-icons: provide beutiful icons
+4. react-toastify:to display temporarily messages in the screen to provide feedbacks or alert to the user
+
+Backend
+1.bcryptjs: hashing the password during registration
+cors : specify which origins are allowed to access the resources(backend localhost:8000 , frontend:5173)
+express: framework of backend
+mongoose: library of MongoDB,straightforward way to interact with databases
+validators:ensuring integrity, security,and usability of web application
