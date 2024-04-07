@@ -34,7 +34,7 @@ You will be logged in redirect to Home page
 
       c.> After checkup if any patient is to be admitted, there is an option of Adding patient in given room such that patient's relative , nurses
           can easily search in which room which patient is admitted. 
-          (Note: client have to search by patient name and Admin can look whole patient name and their room at their "/admin" page
+          (Note: client have to search by patient name but Admin can look whole patient name and their room at their "/admin" page
 
 5 Online Medical Shop
       click on medicines on Navbar 
