@@ -24,6 +24,7 @@ You will be logged in redirect to Home page
 
 4 Admin Side "/admin" for doctor (Note: since middleware is not used we can reach to admin page )
       ADMIN FUNCTIONALITY
+      
       a.> Admin/Doctor can see the all the appointment booked for him.
               in book an appointment section , there is an input of "Reason to visit" option
               if admin think it is case of emergency he/she priortise that patient to see as early as possible
