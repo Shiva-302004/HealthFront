@@ -6,6 +6,9 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import DoctorsInfo from "./pages/DoctorsInfo";
 import Appoinment from "./pages/Appointment";
+import Payment from "./pages/Payment";
+import PaymentSuccessPage from "./pages/PaymentSuccessPage";
+import Carts from "./components/Carts";
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
         <Route path='/doctorsinfo' element={<DoctorsInfo/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/paymentsuccessful' element={<PaymentSuccessPage/>}/>
+        <Route path='/cart' element={<Carts/>}/>
         {/* <Route path='*' element={<Error/>}/> */}
       </Routes>
     {/* <Footer/> */}
